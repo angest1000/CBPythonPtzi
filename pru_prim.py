@@ -1,22 +1,26 @@
 # Codigo para probar si un numero es o no primo
-# y en caso de no serlo muestra entre que numeros 
-#es divisible dicho numero
+
+def es_primo(numero):
+    contador = 0
+
+    for i in range(1,numero +1):
+        if i == 1 or i == numero:
+            continue
+        if numero % i ==0:
+            contador += 1
+    if contador == 0:
+        return True
+    else:
+        return False
+
 
 def main():
 
-    numero = int(input('Introduce un numero: '))
-    val = 2
-    prim=1
-    while val <= numero / 2:
-        if numero % val == 0:
-            print(str(val)+' divide a '+str(numero))
-            prim=0
-        val += 1
-
-    if prim == 0:
-        print(str(numero)+' no es un numero primo!')
+    numero = int(input('Escribe un numero: '))
+    if es_primo(numero):
+        print('Es primo')
     else:
-        print(str(numero)+' es primo!!!')
+        print('No es primo')
 
 if __name__ == '__main__':
     main()
